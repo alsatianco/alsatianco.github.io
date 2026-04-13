@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binturong — Alsatian Studio</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html"><span class="logo-dot"></span> Alsatian Studio</a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../software.html">Software</a>
+    <a href="../games.html">Games</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<div class="detail">
+  <a class="detail-back" href="../software.html">← Back</a>
+
+  <div class="detail-hero" style="background:#2D6A4F20">
+    <div class="pattern"></div>
+    <span style="z-index:1">🧰</span>
+  </div>
+
+  <h1>Binturong</h1>
+  <span class="card-badge" style="background:#2D6A4F30;margin-bottom:1rem;display:inline-block">Developer Tool</span>
+  <p class="subtitle">Binturong packages local developer tools into a fast desktop app with a Tauri 2 + Rust core, a React + TypeScript frontend, Tailwind styling, and cross-platform release automation.</p>
+
+  <div class="section-header"><span class="label">Screenshots</span><span class="bar"></span></div>
+  <div class="screenshots">
+    <div class="ss">Tool Grid</div>
+    <div class="ss">Command Runner</div>
+    <div class="ss">Benchmarks</div>
+    <div class="ss">Releases</div>
+  </div>
+
+  <div class="detail-section">
+    <h2>Development</h2>
+    <p>Install with `npm install`. Use `npm run tauri dev` for the desktop app, `npm run dev` for the frontend only, and `npm run build` for frontend assets.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Release &amp; Distribution</h2>
+    <p>Installer builds are handled by `.github/workflows/build-installers.yml`. Pushing a `v*` tag builds macOS, Windows, and Linux installers and publishes them to the matching GitHub Release. Manual `workflow_dispatch` is also supported, and package manager manifests live under `packaging/` for Homebrew, Winget, Snap, and Flatpak. Builds are unsigned by default until Apple signing secrets are configured.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Validation</h2>
+    <p>`.github/workflows/ci-test-matrix.yml` runs frontend, policy, Rust, and performance checks. Release-candidate QA is available through `.github/workflows/release-candidate-qa.yml` or `./scripts/release_candidate_qa.sh`. Additional validation scripts cover privacy/security, dependency and license audits, and release-mode benchmarks, with reports written under `docs/`.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>License</h2>
+    <p>This software is provided under the MIT License. You are free to use, modify, and distribute it. See the full license text in the repository.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Privacy Policy</h2>
+    <p>We collect no personal data. Analytics, if any, are fully anonymous and aggregated. Your data stays yours.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Terms of Use</h2>
+    <p>Use at your own risk. We do our best to ship stable software, but make no warranties. If something breaks, file a bug — we'll fix it.</p>
+  </div>
+</div>
+
+<footer>
+  © 2026 Alsatian Studio — Built with stubbornness and caffeine.
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

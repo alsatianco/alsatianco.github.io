@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why I Wrote My Own Redis (Mock Test Content, Not Real) — Alsatian Studio</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html"><span class="logo-dot"></span> Alsatian Studio</a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../software.html">Software</a>
+    <a href="../games.html">Games</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<div class="detail">
+  <a class="detail-back" href="../blog.html">← Back</a>
+
+  <div class="detail-hero" style="background:#FF475720">
+    <div class="pattern"></div>
+    <span style="z-index:1">⚙️</span>
+  </div>
+
+  <h1>Why I Wrote My Own Redis (Mock Test Content, Not Real)</h1>
+  <span class="card-badge" style="background:#FF475730;margin-bottom:1rem;display:inline-block">2026-02-15</span>
+  <span class="card-badge" style="background:#FF475720;margin-bottom:1rem;display:inline-block;margin-left:.4rem">Engineering</span>
+  <p class="subtitle">Sometimes the fastest way to really understand infrastructure is to build a smaller version yourself. HyperStore started as a weekend experiment to learn where Redis gets its performance and where a modern implementation can push further.</p>
+
+  <div class="detail-section">
+    <h2>What I Wanted To Learn</h2>
+    <p>I wanted to dig into data structures, memory layout, and network protocol handling from first principles. Reading papers and source code helped, but nothing made the tradeoffs clearer than implementing command parsing, eviction policies, and persistence myself.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Where It Got Hard</h2>
+    <p>The tricky part was not raw speed on a benchmark, it was keeping latency consistent under load. Small implementation details such as allocation patterns and lock contention had a bigger impact than expected. The project forced me to profile every assumption.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>What Came Next</h2>
+    <p>That prototype became HyperStore. It is still intentionally focused and not trying to be everything to everyone, but it now powers internal queues and cache-heavy tools. Building it taught me more in a month than years of casual reading.</p>
+  </div>
+</div>
+
+<footer>
+  © 2026 Alsatian Studio — Built with stubbornness and caffeine.
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

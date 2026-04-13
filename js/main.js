@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (path.includes('/games/') && linkPage === 'games.html') {
       a.classList.add('active');
     }
+    if (path.includes('/blog/') && linkPage === 'blog.html') {
+      a.classList.add('active');
+    }
   });
 
   // Hamburger menu toggle

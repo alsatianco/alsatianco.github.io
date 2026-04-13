@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streamline v0.5 Released (Mock Test Content, Not Real) — Alsatian Studio</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html"><span class="logo-dot"></span> Alsatian Studio</a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../software.html">Software</a>
+    <a href="../games.html">Games</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<div class="detail">
+  <a class="detail-back" href="../blog.html">← Back</a>
+
+  <div class="detail-hero" style="background:#4ECDC420">
+    <div class="pattern"></div>
+    <span style="z-index:1">🌊</span>
+  </div>
+
+  <h1>Streamline v0.5 Released (Mock Test Content, Not Real)</h1>
+  <span class="card-badge" style="background:#4ECDC430;margin-bottom:1rem;display:inline-block">2025-12-20</span>
+  <span class="card-badge" style="background:#4ECDC420;margin-bottom:1rem;display:inline-block;margin-left:.4rem">Release</span>
+  <p class="subtitle">Version 0.5 is our biggest Streamline release so far, focused on reliability and observability. The core queueing model is unchanged, but the operator workflow is much smoother for real production traffic.</p>
+
+  <div class="detail-section">
+    <h2>Consumer Groups</h2>
+    <p>Multiple consumers can now share work predictably with explicit group offsets. This enables horizontal scaling without custom coordination logic in every service and improves throughput consistency during bursty workloads.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Dead Letter Queues</h2>
+    <p>Failed events can be routed automatically after configurable retry windows. Operators get clear visibility into poison messages while the primary stream stays healthy. Replay tools are included for controlled reprocessing.</p>
+  </div>
+
+  <div class="detail-section">
+    <h2>Web Dashboard</h2>
+    <p>The new dashboard surfaces lag, retries, and consumer health in one view. Instead of stitching metrics from several tools, teams can inspect stream behavior quickly and act before small issues become incidents.</p>
+  </div>
+</div>
+
+<footer>
+  © 2026 Alsatian Studio — Built with stubbornness and caffeine.
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
