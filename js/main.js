@@ -32,4 +32,39 @@ document.addEventListener('DOMContentLoaded', function () {
       hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
     });
   }
+
+  var lastTrigger;
+  function closeLightbox() {
+    var lightbox = document.querySelector('.image-lightbox');
+    if (!lightbox) return;
+    lightbox.remove();
+    document.body.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  document.querySelectorAll('.screenshot-trigger').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var sourceImage = trigger.querySelector('img');
+      if (!sourceImage) return;
+      lastTrigger = trigger;
+      var lightbox = document.createElement('button');
+      var fullImage = document.createElement('img');
+      lightbox.className = 'image-lightbox';
+      lightbox.type = 'button';
+      lightbox.setAttribute('aria-label', 'Close full-size image');
+      fullImage.src = sourceImage.currentSrc || sourceImage.src;
+      fullImage.alt = sourceImage.alt;
+      lightbox.appendChild(fullImage);
+      lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.body.appendChild(lightbox);
+      document.body.style.overflow = 'hidden';
+      lightbox.focus();
+    });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeLightbox();
+  });
 });

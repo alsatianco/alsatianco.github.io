@@ -294,17 +294,18 @@ nav {
   font-size: 5rem;
   margin-bottom: 2rem;
   position: relative;
+  isolation: isolate;
   overflow: hidden;
 }
 .detail-hero .pattern {
-  position: absolute; inset: 0; opacity: .08;
+  position: absolute; inset: 0; z-index: 0; opacity: .08;
   background-image: repeating-linear-gradient(45deg, var(--black) 0, var(--black) 1px, transparent 0, transparent 50%);
   background-size: 16px 16px;
 }
 .detail-hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   position: relative;
   z-index: 1;
 }
@@ -321,14 +322,12 @@ nav {
   max-width: 700px;
 }
 .screenshots {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: .5rem;
   margin-bottom: 2rem;
 }
 .screenshots .ss {
-  min-width: 200px;
   height: 130px;
   border: var(--border);
   background: #eee;
@@ -338,11 +337,10 @@ nav {
   font-family: var(--mono);
   font-size: .75rem;
   color: #888;
-  flex-shrink: 0;
   box-shadow: var(--shadow-sm);
 }
 .screenshots .ss-image {
-  width: min(100%, 760px);
+  width: 100%;
   height: auto;
   padding: 0;
   display: block;
@@ -350,17 +348,50 @@ nav {
   color: var(--black);
   overflow: hidden;
 }
+.screenshots .ss-image:only-child { max-width: 760px; }
 .screenshots .ss-image img {
   width: 100%;
   display: block;
-  border-bottom: 2px solid var(--black);
 }
+.screenshot-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.screenshot-trigger:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
+}
+.screenshot-trigger img { border-bottom: 2px solid var(--black); }
 .screenshots .ss-image figcaption {
   padding: .55rem .7rem;
   font-family: var(--mono);
   font-size: .72rem;
   font-weight: 700;
 }
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  border: 0;
+  background: rgb(0 0 0 / .82);
+  cursor: zoom-out;
+}
+.image-lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  cursor: default;
+}
+.image-lightbox:focus-visible { outline: 3px solid var(--yellow); outline-offset: -6px; }
 .detail-section {
   margin-bottom: 1.5rem;
 }
