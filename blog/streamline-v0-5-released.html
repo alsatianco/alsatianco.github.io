@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Streamline v0.5 Released (Mock Test Content, Not Real) — Alsatian Studio</title>
+<title>Streamline v0.5 Released — Alsatian Studio</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -30,22 +30,22 @@
     <span style="z-index:1">🌊</span>
   </div>
 
-  <h1>Streamline v0.5 Released (Mock Test Content, Not Real)</h1>
+  <h1>Streamline v0.5 Released</h1>
   <span class="card-badge" style="background:#4ECDC430;margin-bottom:1rem;display:inline-block">2025-12-20</span>
   <span class="card-badge" style="background:#4ECDC420;margin-bottom:1rem;display:inline-block;margin-left:.4rem">Release</span>
   <p class="subtitle">Version 0.5 is our biggest Streamline release so far, focused on reliability and observability. The core queueing model is unchanged, but the operator workflow is much smoother for real production traffic.</p>
 
-  <div class="detail-section">
+  <div class="detail-section" id="consumer-groups">
     <h2>Consumer Groups</h2>
     <p>Multiple consumers can now share work predictably with explicit group offsets. This enables horizontal scaling without custom coordination logic in every service and improves throughput consistency during bursty workloads.</p>
   </div>
 
-  <div class="detail-section">
+  <div class="detail-section" id="dead-letter-queues">
     <h2>Dead Letter Queues</h2>
     <p>Failed events can be routed automatically after configurable retry windows. Operators get clear visibility into poison messages while the primary stream stays healthy. Replay tools are included for controlled reprocessing.</p>
   </div>
 
-  <div class="detail-section">
+  <div class="detail-section" id="web-dashboard">
     <h2>Web Dashboard</h2>
     <p>The new dashboard surfaces lag, retries, and consumer health in one view. Instead of stitching metrics from several tools, teams can inspect stream behavior quickly and act before small issues become incidents.</p>
   </div>

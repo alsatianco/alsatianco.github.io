@@ -224,6 +224,13 @@ nav {
   overflow: hidden;
 }
 .card-thumb .icon { font-size: 3.5rem; z-index: 1; }
+.card-thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
 .card-thumb .pattern {
   position: absolute;
   inset: 0;
@@ -294,6 +301,13 @@ nav {
   background-image: repeating-linear-gradient(45deg, var(--black) 0, var(--black) 1px, transparent 0, transparent 50%);
   background-size: 16px 16px;
 }
+.detail-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
 .detail h1 {
   font-family: var(--mono);
   font-size: 2rem;
@@ -326,6 +340,26 @@ nav {
   color: #888;
   flex-shrink: 0;
   box-shadow: var(--shadow-sm);
+}
+.screenshots .ss-image {
+  width: min(100%, 760px);
+  height: auto;
+  padding: 0;
+  display: block;
+  background: white;
+  color: var(--black);
+  overflow: hidden;
+}
+.screenshots .ss-image img {
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid var(--black);
+}
+.screenshots .ss-image figcaption {
+  padding: .55rem .7rem;
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 700;
 }
 .detail-section {
   margin-bottom: 1.5rem;
