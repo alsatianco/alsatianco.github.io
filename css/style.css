@@ -183,6 +183,7 @@ nav {
   background: var(--black);
 }
 .section-header .label {
+  margin: 0;
   background: var(--black);
   color: var(--bg);
   padding: .15em .6em;
