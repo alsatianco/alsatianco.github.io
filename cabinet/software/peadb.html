@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeaDB | Alsatian Studio</title>
+<meta name="description" content="PeaDB is a Redis 7.2.5-compatible in-memory data store written in C++20. Free and open source under the MIT License, with a Docker image.">
+<link rel="canonical" href="https://play.alsatian.co/software/peadb.html">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#D3D9CD">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alsatian Studio">
+<meta property="og:title" content="PeaDB | Alsatian Studio">
+<meta property="og:description" content="PeaDB is a Redis 7.2.5-compatible in-memory data store written in C++20. Free and open source under the MIT License, with a Docker image.">
+<meta property="og:url" content="https://play.alsatian.co/software/peadb.html">
+<meta property="og:image" content="https://play.alsatian.co/assets/og/peadb.png">
+<meta property="og:image:alt" content="PeaDB: An in-memory data store that works with Redis clients.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PeaDB | Alsatian Studio">
+<meta name="twitter:description" content="PeaDB is a Redis 7.2.5-compatible in-memory data store written in C++20. Free and open source under the MIT License, with a Docker image.">
+<meta name="twitter:image" content="https://play.alsatian.co/assets/og/peadb.png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preload" href="../fonts/libre-caslon-text-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/libre-caslon-text-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/site.css?v=dd7bb21384">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","operatingSystem":["Linux"],"license":"https://opensource.org/licenses/MIT","name":"PeaDB","description":"PeaDB is a Redis 7.2.5-compatible in-memory data store written in C++20. Free and open source under the MIT License, with a Docker image.","url":"https://play.alsatian.co/software/peadb.html","author":{"@type":"Organization","name":"Alsatian Studio","url":"https://play.alsatian.co/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../"><span class="brand-name">Alsatian Studio</span></a><nav class="site-nav" aria-label="Main"><ul><li><a href="../#software" class="is-section">Software</a></li><li><a href="../#games">Games</a></li><li><a href="../about.html">About</a></li></ul></nav></div></header>
+<main id="main">
+<article class="wrap project voice-linear"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../#software">Software</a></li><li><a href="../#developers">For developers</a></li></ol></nav><header class="project-head"><span class="project-icon project-icon--mono" aria-hidden="true">Pe</span><h1 class="project-name">PeaDB</h1><p class="project-tagline">An in-memory data store that speaks the Redis protocol. Existing Redis clients and tools connect without changes.</p><div class="actions"><a class="button button--primary" href="https://github.com/alsatianco/peadb">View source on GitHub</a><a class="button" href="https://hub.docker.com/r/alsatianco/peadb-server">Docker image</a></div></header><figure class="media media--code"><pre class="terminal" tabindex="0"><code>redis-cli -p 6379
+127.0.0.1:6379&gt; SET hello world
+OK
+127.0.0.1:6379&gt; GET hello
+&quot;world&quot;</code></pre><figcaption>A Redis client talking to PeaDB</figcaption></figure><div class="project-body"><aside class="facts voice-linear" aria-labelledby="facts-title"><h2 id="facts-title">Facts</h2><dl><div class="fact"><dt>Made for</dt><dd>Developers and teams who run Redis</dd></div><div class="fact"><dt>Works with</dt><dd>Redis 7.2.5 clients and tools</dd></div><div class="fact"><dt>Runs on</dt><dd>Linux, or anywhere Docker runs</dd></div><div class="fact"><dt>Price</dt><dd>Free</dd></div><div class="fact"><dt>Source code</dt><dd>Open source, MIT License</dd></div><div class="fact"><dt>Your data</dt><dd>Stored on your own server</dd></div><div class="fact"><dt>Account</dt><dd>Not needed</dd></div><div class="fact"><dt>Written in</dt><dd>C++20</dd></div><div class="fact fact--status"><dt>Status</dt><dd>In active development. Cluster mode is experimental and not safe for production.</dd></div></dl></aside><div class="prose">
+<section id="what-it-is" aria-labelledby="what-it-is-title"><h2 id="what-it-is-title">What PeaDB is</h2>
+<p>PeaDB aims to behave exactly like Redis 7.2.5: the same protocol, the same commands, and the same edge cases. It is built on cache-friendly data structures and a lean event loop.</p>
+<p>The command path is single-threaded today, like Redis. A sharded, multi-core design is the target on <a href="https://github.com/alsatianco/peadb/blob/main/docs/architecture.md">the roadmap</a>.</p>
+</section>
+<section id="run-peadb" aria-labelledby="run-peadb-title"><h2 id="run-peadb-title">Run PeaDB</h2>
+<p>Run the published Docker image:</p>
+<pre data-copy><code>docker run -d --name peadb -p 6379:6379 -v peadb-data:/data alsatianco/peadb-server:latest \
+  --port 6379 --bind 0.0.0.0 --dir /data --appendonly yes --requirepass "&lt;your-password&gt;"</code></pre>
+<p>Protected mode is on by default, so set a password with <code>--requirepass</code>. The image does not save data unless you turn on <code>--appendonly yes</code> or <code>--save</code>.</p>
+<p>Or build it from source. You need a C++20 compiler (GCC 11 or newer, or Clang 14 or newer) and CMake 3.16 or newer:</p>
+<pre data-copy><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j$(nproc)
+./build/peadb-server --port 6379 --bind 127.0.0.1</code></pre>
+<p><a href="https://github.com/alsatianco/peadb#quick-start">Read the quick start</a> for details.</p>
+</section>
+<section id="what-works" aria-labelledby="what-works-title"><h2 id="what-works-title">What works today</h2>
+<ul>
+<li>Full RESP2 and partial RESP3 protocol, so existing Redis clients work with no changes.</li>
+<li>Strings, hashes, lists, sets, sorted sets, streams, HyperLogLog, geo, bitmaps, pub/sub, transactions, and Lua scripting. <a href="https://github.com/alsatianco/peadb/blob/main/compat/commands.generated.md">See the full command list</a>.</li>
+<li>RDB snapshots and AOF logging. RDB files use the Redis format, so Redis and PeaDB can load each other's files.</li>
+<li><code>maxmemory</code> with all eight eviction policies.</li>
+<li>PSYNC2 replication with several replicas, chained replicas, and automatic reconnect.</li>
+</ul>
+</section>
+<section id="speed" aria-labelledby="speed-title"><h2 id="speed-title">Speed</h2>
+<p>Single-connection throughput. These numbers are representative, not peak:</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Operation</th><th scope="col" class="num">Operations per second</th></tr></thead>
+<tbody>
+<tr><td>SET</td><td class="num">63,694</td></tr>
+<tr><td>GET</td><td class="num">59,524</td></tr>
+<tr><td>LPUSH</td><td class="num">62,893</td></tr>
+<tr><td>LPOP</td><td class="num">61,728</td></tr>
+<tr><td>INCR</td><td class="num">63,694</td></tr>
+<tr><td>SADD</td><td class="num">63,694</td></tr>
+</tbody></table></div>
+<p>Throughput is competitive at low concurrency. Tail latency rises under very high concurrency, because the command path is single-threaded. You can reproduce the numbers with <code>scripts/dev/redis_vs_peadb_benchmark.sh</code>, which compares PeaDB with Redis.</p>
+</section>
+<section id="known-limits" aria-labelledby="known-limits-title"><h2 id="known-limits-title">Known limits</h2>
+<ul>
+<li>No TLS, no multi-user ACL, and no Sentinel. <a href="https://github.com/alsatianco/peadb/blob/main/SECURITY.md">Read the security notes</a> before you deploy.</li>
+<li>Cluster mode is experimental and not safe for production. It can write keys on the wrong node, and <code>redis-cli --cluster</code> workflows do not work.</li>
+<li>Lua is stock Lua 5.1.5, not the patched copy inside Redis, so some script results differ.</li>
+</ul>
+<p>Every known difference from Redis is listed in <a href="https://github.com/alsatianco/peadb/blob/main/compat/delta.md">compat/delta.md</a>.</p>
+</section>
+<section id="contribute" aria-labelledby="contribute-title"><h2 id="contribute-title">Contribute or report a problem</h2>
+<ul class="link-list">
+<li><a href="https://github.com/alsatianco/peadb">Source code and MIT license</a></li>
+<li><a href="https://github.com/alsatianco/peadb/issues">Report a problem</a></li>
+</ul>
+</section>
+</div></div></article>
+<nav class="more voice-linear" aria-labelledby="more-title"><div class="wrap"><h2 class="group-title" id="more-title">More for developers</h2><ul class="rows" role="list"><li><a class="row" href="../software/binturong.htm"><img class="row-icon" src="../../assets/icons/binturong.webp" width="64" height="64" alt="" loading="lazy" decoding="async"><span class="row-name">Binturong</span><span class="row-line">134 everyday developer tools in one desktop app.</span><span class="row-kind">Desktop app</span></a></li><li><a class="row" href="../software/kawasan.html"><span class="row-icon row-icon--mono" aria-hidden="true">Ka</span><span class="row-name">Kawasan</span><span class="row-line">A Kafka-compatible message broker on a single server.</span><span class="row-kind">Server</span></a></li></ul></div></nav>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><p class="footer-brand">Alsatian Studio</p><ul class="footer-links"><li><a href="../#software">Software</a></li><li><a href="../#games">Games</a></li><li><a href="../#experiments">Experiments</a></li><li><a href="../updates.html">Updates</a></li><li><a href="../about.html">About</a></li><li><a href="https://github.com/alsatianco">GitHub</a></li><li><a href="https://alsatian.itch.io/">itch.io</a></li></ul><p class="footer-note">This website has no analytics and sets no cookies.</p><p class="footer-copy">&copy; 2026 Alsatian Studio</p><details class="design-switch"><summary>Design: <span class="design-current">Specimen cabinet</span></summary><ul class="design-list" role="list"><li><a href="../../software/peadb.html" data-design="original">Black and tan</a></li><li><a href="../../cabinet/software/peadb.html" data-design="cabinet" aria-current="page">Specimen cabinet</a></li><li><a href="../../2007/software/peadb.html" data-design="2007">2007</a></li></ul></details></div></footer>
+<script src="../../js/site.js?v=46c94b3882" defer></script>
+</body>
+</html>

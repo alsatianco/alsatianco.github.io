@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kawasan | Alsatian Studio</title>
+<meta name="description" content="Kawasan is a Kafka wire-protocol compatible broker written in C++20, with Raft metadata and RocksDB storage. Free and open source under the Apache 2.0 License.">
+<link rel="canonical" href="https://play.alsatian.co/software/kawasan.html">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#C20000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alsatian Studio">
+<meta property="og:title" content="Kawasan | Alsatian Studio">
+<meta property="og:description" content="Kawasan is a Kafka wire-protocol compatible broker written in C++20, with Raft metadata and RocksDB storage. Free and open source under the Apache 2.0 License.">
+<meta property="og:url" content="https://play.alsatian.co/software/kawasan.html">
+<meta property="og:image" content="https://play.alsatian.co/assets/og/kawasan.png">
+<meta property="og:image:alt" content="Kawasan: A Kafka-compatible message broker on a single server.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kawasan | Alsatian Studio">
+<meta name="twitter:description" content="Kawasan is a Kafka wire-protocol compatible broker written in C++20, with Raft metadata and RocksDB storage. Free and open source under the Apache 2.0 License.">
+<meta name="twitter:image" content="https://play.alsatian.co/assets/og/kawasan.png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preload" href="../fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/site.css?v=a249c750b6">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","operatingSystem":["Linux","macOS"],"license":"https://www.apache.org/licenses/LICENSE-2.0","name":"Kawasan","description":"Kawasan is a Kafka wire-protocol compatible broker written in C++20, with Raft metadata and RocksDB storage. Free and open source under the Apache 2.0 License.","url":"https://play.alsatian.co/software/kawasan.html","author":{"@type":"Organization","name":"Alsatian Studio","url":"https://play.alsatian.co/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../"><span class="brand-name">Alsatian Studio</span></a><nav class="site-nav" aria-label="Main"><ul><li><a href="../">Home</a></li><li><a href="../software.html" class="is-section">Software</a></li><li><a href="../games.html">Games</a></li><li><a href="../updates.html">Updates</a></li><li><a href="../about.html">About</a></li></ul></nav></div><nav class="subnav" aria-label="Software"><ul><li><a href="../software.html#developers">For developers</a></li><li><a href="../software.html#families">For families and schools</a></li><li><a href="../software.html#everyone">For everyone</a></li></ul></nav></header>
+<main id="main">
+<article class="wrap project voice-linear"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../software.html">Software</a></li><li><a href="../software.html#developers">For developers</a></li></ol></nav><header class="project-head"><span class="project-icon project-icon--mono" aria-hidden="true">Ka</span><h1 class="project-name">Kawasan</h1><p class="project-tagline">A message broker that speaks the Kafka wire protocol. Turn off Kafka, start Kawasan, and your Kafka clients keep working.</p><div class="actions"><a class="button button--primary" href="https://github.com/alsatianco/kawasan">View source on GitHub</a><a class="button" href="#how-ready">How ready it is</a></div></header><figure class="media media--code"><pre class="terminal" tabindex="0"><code>from kafka import KafkaProducer, KafkaConsumer
+
+producer = KafkaProducer(bootstrap_servers=&#x27;localhost:9092&#x27;)
+producer.send(&#x27;my-topic&#x27;, b&#x27;Hello, Kawasan!&#x27;); producer.flush()
+
+consumer = KafkaConsumer(&#x27;my-topic&#x27;, bootstrap_servers=&#x27;localhost:9092&#x27;,
+                         group_id=&#x27;my-group&#x27;, auto_offset_reset=&#x27;earliest&#x27;)
+for msg in consumer:
+    print(msg.value.decode()); break</code></pre><figcaption>A Kafka client for Python, talking to Kawasan</figcaption></figure><div class="project-body"><aside class="facts voice-linear" aria-labelledby="facts-title"><h2 id="facts-title">Facts</h2><dl><div class="fact"><dt>Made for</dt><dd>Developers and teams who run Kafka</dd></div><div class="fact"><dt>Works with</dt><dd>kafka-python, Java clients, kafkajs, sarama, kcat, Kafka UI, and the kafka-*.sh scripts</dd></div><div class="fact"><dt>Runs on</dt><dd>Linux and macOS, or Docker Compose</dd></div><div class="fact"><dt>Price</dt><dd>Free</dd></div><div class="fact"><dt>Source code</dt><dd>Open source, Apache 2.0 License</dd></div><div class="fact"><dt>Your data</dt><dd>Stored on your own server, in RocksDB</dd></div><div class="fact"><dt>Account</dt><dd>Not needed</dd></div><div class="fact"><dt>Written in</dt><dd>C++20</dd></div><div class="fact fact--status"><dt>Status</dt><dd>One broker is well tested. Replication across several brokers is not ready for production yet.</dd></div></dl></aside><div class="prose">
+<section id="what-it-is" aria-labelledby="what-it-is-title"><h2 id="what-it-is-title">What Kawasan is</h2>
+<p>Swap an <code>apache/kafka</code> container for Kawasan, and existing Kafka clients and tools keep working without changes. Kawasan uses Raft for metadata, so there is no ZooKeeper, and RocksDB for durable storage.</p>
+<p>The single-node broker is well tested and suitable for development, testing, and production on a single server.</p>
+</section>
+<section id="how-ready" aria-labelledby="how-ready-title"><h2 id="how-ready-title">How ready it is</h2>
+<div class="table-wrap"><table class="stack" role="table">
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Area</th><th scope="col" role="columnheader">Status</th><th scope="col" role="columnheader">Notes</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><td role="cell">Core broker</td><td role="cell">Stable</td><td role="cell">Topics, produce and fetch, metadata, compression</td></tr>
+<tr role="row"><td role="cell">Consumer groups</td><td role="cell">Stable</td><td role="cell">Persistent offsets, rebalancing, lag tracking</td></tr>
+<tr role="row"><td role="cell">Storage</td><td role="cell">Stable</td><td role="cell">RocksDB segmented logs, time and size retention</td></tr>
+<tr role="row"><td role="cell">Monitoring</td><td role="cell">Stable</td><td role="cell">Prometheus metrics, health endpoints, Grafana dashboard</td></tr>
+<tr role="row"><td role="cell">Deployment</td><td role="cell">Stable</td><td role="cell">Docker, Compose, systemd, launchd, Helm, Kubernetes</td></tr>
+<tr role="row"><td role="cell">Security</td><td role="cell">Implemented</td><td role="cell">SASL/PLAIN and SCRAM, ACLs, quotas. No TLS.</td></tr>
+<tr role="row"><td role="cell">Transactions</td><td role="cell">Partial</td><td role="cell">Durable on one node. Coordinator state does not fail over between brokers yet.</td></tr>
+<tr role="row"><td role="cell">Replication</td><td role="cell">Partial</td><td role="cell">Raft metadata and data replication work. Several brokers together are still experimental.</td></tr>
+<tr role="row"><td role="cell">Streams</td><td role="cell">Experimental</td><td role="cell">The DSL builds, but the runtime does not run end to end yet.</td></tr>
+<tr role="row"><td role="cell">Connect</td><td role="cell">Experimental</td><td role="cell">Framework only. No REST API.</td></tr>
+</tbody></table></div>
+<p>Full details are in the <a href="https://github.com/alsatianco/kawasan/blob/main/docs/api_coverage_matrix.md">API coverage matrix</a> and the <a href="https://github.com/alsatianco/kawasan/blob/main/docs/FAQ.md">FAQ</a>.</p>
+</section>
+<section id="run-kawasan" aria-labelledby="run-kawasan-title"><h2 id="run-kawasan-title">Run Kawasan</h2>
+<p>Build and start a local broker. The script checks your tools, builds, and starts the broker on port 9092:</p>
+<pre data-copy><code>git clone https://github.com/alsatianco/kawasan.git
+cd kawasan
+./scripts/quick-start.sh</code></pre>
+<p>Or run it with Docker Compose from the repository:</p>
+<pre data-copy><code>docker compose up -d</code></pre>
+<p>Then point any Kafka client at <code>localhost:9092</code>. Prometheus metrics are at <code>:9094/metrics</code>, and <code>/health</code>, <code>/readiness</code>, and <code>/liveness</code> are HTTP probes. Building needs GCC 11 or newer (or Clang 13 or newer) and CMake 3.20 or newer.</p>
+</section>
+<section id="known-limits" aria-labelledby="known-limits-title"><h2 id="known-limits-title">Known limits</h2>
+<ul>
+<li>TLS between clients and the broker is not implemented. The broker refuses an SSL configuration instead of serving plain text, so end TLS at a proxy.</li>
+<li>Raft traffic between brokers is plain text. <code>raft.ssl.*</code> settings are accepted but not enforced.</li>
+</ul>
+</section>
+<section id="contribute" aria-labelledby="contribute-title"><h2 id="contribute-title">Contribute or report a problem</h2>
+<ul class="link-list">
+<li><a href="https://github.com/alsatianco/kawasan">Source code and Apache 2.0 license</a></li>
+<li><a href="https://github.com/alsatianco/kawasan/issues">Report a problem</a></li>
+</ul>
+</section>
+</div></div></article>
+<nav class="more voice-linear" aria-labelledby="more-title"><div class="wrap"><h2 class="group-title" id="more-title">More for developers</h2><ul class="rows" role="list"><li><a class="row" href="../software/binturong.htm"><img class="row-icon" src="../../assets/icons/binturong.webp" width="64" height="64" alt="" loading="lazy" decoding="async"><span class="row-name">Binturong</span><span class="row-line">134 everyday developer tools in one desktop app.</span><span class="row-kind">Desktop app</span></a></li><li><a class="row" href="../software/peadb.html"><span class="row-icon row-icon--mono" aria-hidden="true">Pe</span><span class="row-name">PeaDB</span><span class="row-line">An in-memory data store that works with Redis clients.</span><span class="row-kind">Server</span></a></li></ul></div></nav>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><p class="footer-brand">Alsatian Studio</p><ul class="footer-links"><li><a href="../software.html">Software</a></li><li><a href="../games.html">Games</a></li><li><a href="../games.html#experiments">Experiments</a></li><li><a href="../updates.html">Updates</a></li><li><a href="../about.html">About</a></li><li><a href="https://github.com/alsatianco">GitHub</a></li><li><a href="https://alsatian.itch.io/">itch.io</a></li></ul><p class="footer-note">This website has no analytics and sets no cookies.</p><p class="footer-copy">&copy; 2026 Alsatian Studio</p><details class="design-switch"><summary>Design: <span class="design-current">2007</span></summary><ul class="design-list" role="list"><li><a href="../../software/kawasan.html" data-design="original">Black and tan</a></li><li><a href="../../cabinet/software/kawasan.html" data-design="cabinet">Specimen cabinet</a></li><li><a href="../../2007/software/kawasan.html" data-design="2007" aria-current="page">2007</a></li></ul></details></div></footer>
+<script src="../../js/site.js?v=46c94b3882" defer></script>
+</body>
+</html>
